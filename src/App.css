@@ -1,147 +1,24 @@
-/* LandingPage.css */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.landing-page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: #f8f8f8;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
-  background-size: 100% 100%;
-  background-position: center;
-  filter: brightness(0.8);
-}
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
- top: 100px;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: 20px;
-}
-
-.landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-.content p,
-.content h1 {
-  color: white;
-}
-
-.content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.content p {
-  font-size: 25px;
-}
-
-.divider {
-  width: 50px;
-  height: 2px;
-  background-color: #4caf50;
-  margin: 10px 0;
-}
-
-.get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 40px;
-}
-
-.get-started-button:hover {
-  background-color: #45a049;
-}
-
-/* ProductList.css */
-
-.product-list-container {
-  position: absolute;
-  overflow-x: hidden;
-  top: 100vh;
-  /* Initially off-screen */
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
-  transition: top 0.5s ease;
-  /* Smooth transition for top property */
-  overflow-y: auto;
-  /* Enable vertical scrolling */
-  z-index: 2;
-  /* Ensure it's above landing page content */
-  backdrop-filter: blur(5px);
-}
-
-.product-list-container.visible {
-  top: 0;
-}
-/* LandingPage.css */
-@media screen and (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
-    text-align: center;
-  }
-
-  .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
-  }
-
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
-  }
-}
+* { box-sizing: border-box; }
+body { margin: 0; color: #20392b; background: #f7f8f2; font-family: Arial, sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+button, .button { border: 0; border-radius: 6px; background: #285c3d; color: white; padding: 13px 22px; font: inherit; font-weight: 600; cursor: pointer; display: inline-block; text-align: center; }
+button:hover, .button:hover { background: #19462c; }
+button:disabled { background: #deded8; color: #62665f; cursor: not-allowed; }
+a:focus-visible, button:focus-visible { outline: 3px solid #dcad50; outline-offset: 5px; }
+h1,h2,h3,p { margin-top: 0; }
+h1,h2 { font-family: Georgia, serif; line-height: 1.18; font-weight: 400; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.landing-page { position: relative; isolation: isolate; min-height: 100vh; color: #fff; padding: 36px 7vw; display: flex; flex-direction: column; background: #153321; }
+.background-image { position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(90deg, rgba(9,34,20,.86), rgba(9,34,20,.70)), url('/images/greenhouse-2499758_1280.jpg'); background-size: cover; background-position: center; }
+.landing-brand { font-family: Georgia, serif; font-size: 24px; }
+.content { flex: 1; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 9vw; padding: 70px 0; }
+.landing-content h1 { font-size: clamp(40px, 5vw, 72px); margin-bottom: 24px; }
+.landing-content em { font-weight: 400; color: #d7e9ad; }
+.divider { width: 60px; height: 3px; background: #c3d99a; margin-bottom: 24px; }
+.tagline { font-size: 20px; }
+.get-started-button { background: #d5e7ae; color: #20392b; margin-top: 20px; }
+.get-started-button:hover { background: #e8f3d1; }
+.get-started-button span { margin-left: 35px; }
+.landing-footer { font-size: 12px; opacity: .75; }
+footer { text-align: center; padding: 32px 20px; border-top: 1px solid #dce2d5; font-size: 13px; }
+@media(max-width: 760px) { .content { grid-template-columns: 1fr; gap: 56px; padding: 50px 0; } .landing-page { padding: 24px 7vw; } }

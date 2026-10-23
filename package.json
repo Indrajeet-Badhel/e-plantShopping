@@ -1,5 +1,5 @@
 {
-  "name": "shoppingcart",
+  "name": "e-plant-shopping",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite build; vite preview --host"
+    "preview": "vite build && vite preview --host",
+    "test": "playwright test"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
@@ -16,6 +17,7 @@
     "react-redux": "^9.1.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
