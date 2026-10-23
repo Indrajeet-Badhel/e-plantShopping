@@ -7,7 +7,7 @@ test('complete shopping flow, totals, removal, navigation and checkout', async (
   await expect(page.getByRole('heading', { name: /Welcome to Paradise Nursery/ })).toBeVisible();
   await page.getByRole('link', { name: /Get Started/ }).click();
   const sections = page.locator('.plant-section');
-  expect(await sections.count()).toBeGreaterThanOrEqual(3);
+  await expect.poll(() => sections.count()).toBeGreaterThanOrEqual(3);
   for (const section of await sections.all()) {
     const names = await section.locator('h3').allTextContents();
     expect(new Set(names).size).toBeGreaterThanOrEqual(6);
@@ -61,6 +61,7 @@ test('all local thumbnails load and desktop screenshots render', async ({ page }
   await page.goto('./');
   await page.screenshot({ path: 'test-results/landing.png', fullPage: true });
   await page.getByRole('link', { name: /Get Started/ }).click();
+  await expect(page.locator('.product-card')).toHaveCount(30);
   for (const img of await page.locator('.product-card > img').all()) {
     await img.scrollIntoViewIfNeeded();
     await expect.poll(() => img.evaluate(el => el.complete && el.naturalWidth > 0)).toBe(true);
